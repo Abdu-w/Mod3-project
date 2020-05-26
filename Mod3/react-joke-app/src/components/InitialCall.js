@@ -23,14 +23,6 @@ export default class InitialCall extends Component {
             jokes: jokesObj.setup,
             punch_line: jokesObj.punchline,
           }
-          console.log( jkContent.jk_id, 'jhfjhoajnjvnajnejfnjnj')
-          const test = {
-            jk_id: 'idx',
-            jk_type: 'jokesObj.type',
-            jokes: 'jokesObj.setup',
-            punch_line: 'jokesObj.punchline',
-
-          }
 
           axios.post('first_api/v1/jokes', test) // post to DB
           return jkContent
@@ -138,7 +130,7 @@ export default class InitialCall extends Component {
               </button>
 
             </span>
-            {/* <button className='punchLine-btn' onMouseOver */}
+           
           </div>
           )
         }
