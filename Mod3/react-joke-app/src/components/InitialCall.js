@@ -20,8 +20,7 @@ export default class InitialCall extends Component {
      *  set the state
      * else
      *  populate DB with all allJokes *
-     *  set the state *
-     */
+   
     axios.get('https://official-joke-api.appspot.com/random_ten')
       .then(res => {
         const allJokes = res.data.map((jokesObj, idx) => {
