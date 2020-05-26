@@ -1,4 +1,4 @@
-# Joke-for-fun-app
+# React-joke-app
 
 
 ## Technologies Used:
