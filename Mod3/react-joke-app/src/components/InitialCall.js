@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 import axios from 'axios';
 
-
 export default class InitialCall extends Component {
   state = {
     isLoading: true,
@@ -14,7 +13,6 @@ export default class InitialCall extends Component {
 
   async componentDidMount() {
 
-   
     axios.get('https://official-joke-api.appspot.com/random_ten')
       .then(res => {
         const allJokes = res.data.map((jokesObj, idx) => {
