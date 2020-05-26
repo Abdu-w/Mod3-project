@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import InitialCall from './components/InitialCall';
 import Nav from './components/Navbar'
