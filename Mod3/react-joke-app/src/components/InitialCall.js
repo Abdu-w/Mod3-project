@@ -15,11 +15,7 @@ export default class InitialCall extends Component {
   async componentDidMount() {
     /**
      * first check if a record exist
-     * if it does
-     *  retrieve from DB
-     *  set the state
-     * else
-     *  populate DB with all allJokes *
+
    
     axios.get('https://official-joke-api.appspot.com/random_ten')
       .then(res => {
