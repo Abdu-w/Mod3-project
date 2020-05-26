@@ -13,8 +13,6 @@ export default class InitialCall extends Component {
   };
 
   async componentDidMount() {
-    /**
-     * first check if a record exist
 
    
     axios.get('https://official-joke-api.appspot.com/random_ten')
