@@ -18,7 +18,7 @@ Creating an app that lets user read joke and and update joke to share. For anyon
 
 
 ## Wireframe:
-![Home Page](./Wireframe/wireframe)
+![Main Page](./Wireframe/wireframe.png)
 
 ## Link:
 
