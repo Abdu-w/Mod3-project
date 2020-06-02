@@ -1,4 +1,4 @@
-package com.first.SpringProject.firstSpringapp.controller;
+package com.first.SpringProject.demofirstSpringapp.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,55 +18,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.first.SpringProject.firstSpringapp.exception.ResourceNotFoundException;
-import com.first.SpringProject.firstSpringapp.model.Joke;
-import com.first.SpringProject.firstSpringapp.repository.JokeRepository;
+import com.first.SpringProject.demofirstSpringapp.exception.ResourceNotFoundException;
+import com.first.SpringProject.demofirstSpringapp.model.Joke;
+import com.first.SpringProject.demofirstSpringapp.repository.EmployeeRepository;
 
 @RestController
-//endpoint or url
-//@RequestMapping("/api/v1" ) example
+
 @RequestMapping("/first_api/v1" )
 public class JokeControler {
 	
 	@Autowired
-	private JokeRepository jokeRepository;
+	private JokeControler jokeControler;
 	
-	
-	
-	//get all jokes
+
 	@GetMapping("/jokes")
 	public List<Joke> getAllJokes(Model model){
-		return this.jokeRepository.findAll();
+		return this.employeeRepository.findAll();
 		
 	}
 	
-	@GetMapping("/jokes/{id}")
+	@GetMapping("/joke/{id}")
 	public ResponseEntity<Joke> getJokeById(@PathVariable(value="id") Long jokeId)
 	throws ResourceNotFoundException{
 		Joke joke = jokeRepository.findById(jokeId)
-				.orElseThrow(()-> new ResourceNotFoundException("Joke not found for this id ::"+
+				.orElseThrow(()-> new ResourceNotFoundException("joke not found for this id ::"+
 		jokeId));
 		return ResponseEntity.ok().body(joke);
 	}
 	
-	//save joke
-	@PostMapping("/jokes")
+
+	@PostMapping("/joke")
 	public Joke CreateJoke(@Valid @RequestBody Joke joke) {
 		return jokeRepository.save(joke);
 	}
 	
-	//update  Joke
-	@PutMapping("/jokes/{id}")
+
+	@PutMapping("/joke/{id}")
 	public ResponseEntity<Joke> updateJoke(@PathVariable(value = "id") Long jokeId,
 			  @Valid @RequestBody Joke jokeDetails)
 		      throws ResourceNotFoundException {
 		      Joke joke = jokeRepository.findById(jokeId)
-		    		  .orElseThrow(()-> new ResourceNotFoundException("Joke not found for this id :: " + jokeId));
+		    		  .orElseThrow(()-> new ResourceNotFoundException("joke not found for this id :: " + jokeId));
 		      
 		      
-		     joke.setjkType(jokeDetails.getjkType()); 
-		     joke.setjoke(jokeDetails.getjoke());
-		     joke.setpunchLine(jokeDetails.getpunchLine());
+		     joke.setJoke(jokeDetails.getjoke());
+		     joke.setlastName(jokeDetails.getpunch_line());
 		     
 		     
 		     final Joke updatedJoke = jokeRepository.save(joke);
@@ -74,13 +70,12 @@ public class JokeControler {
 		     
 		     return ResponseEntity.ok(updatedJoke);
 	}
-	//  Delete Joke
 	  
-  @DeleteMapping("/jokes/{id}")
+  @DeleteMapping("/joke/{id}")
   public Map<String, Boolean> deletedJoke(@PathVariable(value = "id") Long jokeId)
 			      throws ResourceNotFoundException {
 			      Joke joke = jokeRepository.findById(jokeId)
-			    		  .orElseThrow(()-> new ResourceNotFoundException("Joke not found for this id :: " + jokeId));
+			    		  .orElseThrow(()-> new ResourceNotFoundException("joke not found for this id :: " + employeeId));
   
 			      jokeRepository.delete(joke);
 			      Map<String, Boolean> response = new HashMap<>();
